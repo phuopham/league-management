@@ -6,7 +6,7 @@ import ScoreCard from "../../components/ScoreCard";
 import RankingTable from "../../components/RankingTable";
 
 const Home = () => {
-  
+
   return (
     <div>
       <div className="flex items-center justify-between mb-10">
@@ -17,28 +17,40 @@ const Home = () => {
         </div>
       </div>
       <div className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-5 xl:grid-cols-3">
-        <ScoreCard 
-        team1="Team1" score1='5'
-        team2="Team2" score2='3'/>
         <ScoreCard
-        team1="Team3" score1='2'
-        team2="Team2" score2='3' />
-        <ScoreCard 
-        team1="Team1" score1='3'
-        team2="Team2" score2='4'/>
-        <ScoreCard 
-        team1="Team1" score1='0'
-        team2="Team2" score2='3'/>
-        <ScoreCard 
-        team1="Team1" score1='2'
-        team2="Team2" score2='0'/>
-        <ScoreCard 
-        team1="Team1" score1='1'
-        team2="Team2" score2='1'/>
+          team1="Team1" score1='5'
+          team2="Team2" score2='3'
+          type='Play-off' time='11/01/2023' />
+        <ScoreCard
+          team1="Team3" score1='2'
+          team2="Team2" score2='3'
+          type='Play-off' time='11/01/2023' />
+        <ScoreCard
+          team1="Team1" score1='3'
+          team2="Team2" score2='4'
+          type='Play-off' time='11/01/2023' />
+        <ScoreCard
+          team1="Team1" score1='0'
+          team2="Team2" score2='3'
+          type='Play-off' time='11/01/2023' />
+        <ScoreCard
+          team1="Team1" score1='2'
+          team2="Team2" score2='0'
+          type='Semi-final' time='11/01/2023' />
+        <ScoreCard
+          team1="Team1" score1='1'
+          team2="Team2" score2='1'
+          type='Final' time='11/01/2023' />
       </div>
-      <RankingTable 
+      <RankingTable
         name='Group01'
-        />
+      />
+      <RankingTable
+        name='Group02'
+      />
+      <RankingTable
+        name='Final'
+      />
     </div>
   );
 };

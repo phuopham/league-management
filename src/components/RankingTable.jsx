@@ -1,9 +1,9 @@
 import React from 'react'
 
 const RankingTable = ({ name, group }) => {
-  
+
   return (
-    <div className='relative pt-6'>
+    <div className='relative pt-6 mt-5'>
       <h1 className='text-3xl absolute top-0 left-10 text-primary font-bold'>{name}</h1>
       <div className="bg-gray-800 p-5 rounded-3xl grid">
         <table>
@@ -36,6 +36,18 @@ const RankingTable = ({ name, group }) => {
                 <td className='py-2 text-end'>{team.point}</td>
               </tr>
             })} */}
+            <tr>
+              <td>1</td>
+              <td className="py-2 w-1/4">Myteam</td>
+              <td className='py-2 text-end'>6</td>
+              <td className='py-2 text-end'>2</td>
+              <td className='py-2 text-end'>1</td>
+              <td className='py-2 text-end'>3</td>
+              <td className='py-2 text-end hidden md:table-cell'>5</td>
+              <td className='py-2 text-end hidden md:table-cell'>7</td>
+              <td className='py-2 text-end hidden md:table-cell'>2</td>
+              <td className='py-2 text-end'>6</td>
+            </tr>
             <tr>
               <td>1</td>
               <td className="py-2 w-1/4">Myteam</td>
