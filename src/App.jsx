@@ -10,6 +10,7 @@ import ForgotPassword from "./pages/auth/ForgotPassword";
 import Home from "./pages/admin/Home";
 import Profile from "./pages/admin/Profile";
 import Error404 from "./pages/Error404";
+import TeamManagement from "./pages/admin/TeamsManagement";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/" element={<LayoutAdmin />}>
           <Route index element={<Home />} />
+          <Route path="team" element={<TeamManagement />} />
           <Route path="profile" element={<Profile />} />
         </Route>
         <Route path="*" element={<Error404 />} />
