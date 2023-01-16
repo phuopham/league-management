@@ -3,8 +3,10 @@ import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import ScoreCard from "../../components/ScoreCard";
+import RankingTable from "../../components/RankingTable";
 
 const Home = () => {
+  
   return (
     <div>
       <div className="flex items-center justify-between mb-10">
@@ -34,7 +36,9 @@ const Home = () => {
         team1="Team1" score1='1'
         team2="Team2" score2='1'/>
       </div>
-      
+      <RankingTable 
+        name='Group01'
+        />
     </div>
   );
 };
