@@ -10,28 +10,29 @@ const Profile = () => {
   return (
     <>
       {/* Profile */}
+      <div className="font-bold text-4xl uppercase tracking-[5px] mb-10">
+        Profile <span className="text-primary">Detail</span>
+      </div>
       <div className="bg-secondary-100 p-8 rounded-xl mb-8">
-        <h1 className="text-xl text-gray-100">Profile</h1>
-        <hr className="my-8 border-gray-500/30" />
         <form className="mb-8">
           <Input
-          title="Username"
-          isRequired
-          placeholder="Username" />
+            title="Username"
+            isRequired
+            placeholder="Username" />
           <hr className="my-8 border-gray-500/30" />
           <Input
-          title="Email" 
-          isRequired
-          placeholder="Email" />
+            title="Email"
+            isRequired
+            placeholder="Email" />
           <hr className="my-8 border-gray-500/30 border-dashed" />
-          <Input 
-          title="Password"
-          isRequired
-          placeholder="Your new password"/>
           <Input
-          title="Confirm password"
-          isRequired
-          placeholder="Confirm your new password"/>
+            title="Password"
+            isRequired
+            placeholder="Your new password" />
+          <Input
+            title="Confirm password"
+            isRequired
+            placeholder="Confirm your new password" />
 
           <hr className="my-8 border-gray-500/30" />
           <div className="flex justify-end">

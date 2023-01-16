@@ -10,7 +10,7 @@ const ScoreCard = ({ team1, team2, score1, score2, type, time }) => {
                 }>
                     {team1}
                 </div>
-                <div>
+                <div className='font-bold'>
                     {score1} - {score2}
                 </div>
                 <div className={
@@ -18,7 +18,7 @@ const ScoreCard = ({ team1, team2, score1, score2, type, time }) => {
                         score1 == score2 ? '' : 'text-gray-500'
                 }>{team2}</div>
             </div>
-            <div className="absolute top-[-0.75rem] right-1/2 translate-x-1/2 justify-between text-gray-200 bg-gray-700 px-2 py-1 rounded-xl">
+            <div className="absolute top-[-0.75rem] right-1/2 translate-x-1/2 justify-between text-gray-900 bg-gray-600 px-2 py-1 rounded-xl">
                 <div className='text-xs'><span className='text-primary'>{type}</span> - {time}</div>
             </div>
         </div>

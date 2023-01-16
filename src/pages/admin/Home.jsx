@@ -9,8 +9,8 @@ const Home = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-10">
-        <h1 className="text-4xl text-white">Good morning, <span className="text-primary">Admin</span>!</h1>
+      <div className="flex items-center justify-between mb-10 uppercase tracking-[5px] font-bold">
+        <h1 className="text-4xl text-white">League <span className="text-primary">Dashboard</span></h1>
         <div className="flex items-center gap-2 text-3xl">
           <RiArrowLeftSLine className="hover:cursor-pointer hover:text-white transition-colors" />
           <RiArrowRightSLine className="hover:cursor-pointer hover:text-white transition-colors" />

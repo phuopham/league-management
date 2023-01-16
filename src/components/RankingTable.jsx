@@ -5,7 +5,7 @@ const RankingTable = ({ name, group }) => {
   return (
     <div className='relative pt-6 mt-5'>
       <h1 className='text-3xl absolute top-0 left-10 text-primary font-bold'>{name}</h1>
-      <div className="bg-gray-800 p-5 rounded-3xl grid">
+      <div className="bg-gray-800 p-5 rounded-3xl">
         <table>
           <thead>
             <tr>
