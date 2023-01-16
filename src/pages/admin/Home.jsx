@@ -22,18 +22,19 @@ const Home = () => {
         team1="Team3" score1='2'
         team2="Team2" score2='3' />
         <ScoreCard 
-        team1="Team1" score1='5'
+        team1="Team1" score1='3'
+        team2="Team2" score2='4'/>
+        <ScoreCard 
+        team1="Team1" score1='0'
         team2="Team2" score2='3'/>
         <ScoreCard 
-        team1="Team1" score1='5'
-        team2="Team2" score2='3'/>
+        team1="Team1" score1='2'
+        team2="Team2" score2='0'/>
         <ScoreCard 
-        team1="Team1" score1='5'
-        team2="Team2" score2='3'/>
-        <ScoreCard 
-        team1="Team1" score1='5'
-        team2="Team2" score2='3'/>
+        team1="Team1" score1='1'
+        team2="Team2" score2='1'/>
       </div>
+      
     </div>
   );
 };
