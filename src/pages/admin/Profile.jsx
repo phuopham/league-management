@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import Input from "../../components/Input";
 
 const Profile = () => {
-  const [enabled, setEnabled] = useState(false);
   return (
     <>
       {/* Profile */}
@@ -15,12 +14,25 @@ const Profile = () => {
         <h1 className="text-xl text-gray-100">Profile</h1>
         <hr className="my-8 border-gray-500/30" />
         <form className="mb-8">
-          <Input />
+          <Input
+          title="Username"
+          isRequired
+          placeholder="Username" />
           <hr className="my-8 border-gray-500/30" />
-          <Input />
+          <Input
+          title="Email" 
+          isRequired
+          placeholder="Email" />
           <hr className="my-8 border-gray-500/30 border-dashed" />
-          <Input />
-          <Input />
+          <Input 
+          title="Password"
+          isRequired
+          placeholder="Your new password"/>
+          <Input
+          title="Confirm password"
+          isRequired
+          placeholder="Confirm your new password"/>
+
           <hr className="my-8 border-gray-500/30" />
           <div className="flex justify-end">
             <button className="bg-primary/90 text-black hover:bg-primary flex items-center gap-2 py-2 px-4 rounded-lg transition-colors">
