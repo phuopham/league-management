@@ -4,7 +4,7 @@ import {
   RiErrorWarningLine,
 } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import Input from "../../components/Input";
+import ProfileInput from "../../components/ProfileInput";
 
 const Profile = () => {
   return (
@@ -15,21 +15,25 @@ const Profile = () => {
       </div>
       <div className="bg-secondary-100 p-8 rounded-xl mb-8">
         <form className="mb-8">
-          <Input
+          <ProfileInput
+            style="md:w-1/4"
             title="Username"
             isRequired
             placeholder="Username" />
           <hr className="my-8 border-gray-500/30" />
-          <Input
+          <ProfileInput
+            style="md:w-1/4"
             title="Email"
             isRequired
             placeholder="Email" />
           <hr className="my-8 border-gray-500/30 border-dashed" />
-          <Input
+          <ProfileInput
+            style="md:w-1/4"
             title="Password"
             isRequired
             placeholder="Your new password" />
-          <Input
+          <ProfileInput
+            style="md:w-1/4"
             title="Confirm password"
             isRequired
             placeholder="Confirm your new password" />

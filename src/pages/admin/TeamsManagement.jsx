@@ -1,5 +1,5 @@
 import React from "react";
-import { RiArrowDownSLine, RiArrowLeftSLine, RiArrowRightSLine, RiLogoutCircleRLine } from "react-icons/ri";
+import { RiAddLine, RiArrowDownSLine, RiArrowLeftSLine, RiArrowRightSLine, RiLogoutCircleRLine } from "react-icons/ri";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import ScoreCard from "../../components/ScoreCard";
@@ -7,7 +7,8 @@ import RankingTable from "../../components/RankingTable";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import { Link } from "react-router-dom";
 import TeamCard from "../../components/TeamCard";
-import Input from "../../components/Input";
+import ProfileInput from "../../components/ProfileInput";
+import NewPlayerCard from "../../components/NewPlayerCard";
 
 const TeamManagement = () => {
 
@@ -54,19 +55,16 @@ const TeamManagement = () => {
         <TeamCard />
         <TeamCard />
         <TeamCard />
-      </div>
-      <div className="mb-[25rem]"></div>
-      <div className='absolute bottom-0 right-1/2 translate-x-1/2 translate-y-[2.5rem] bg-gray-700 w-3/5 p-5 rounded-3xl'>
-        <div className="relative">
-          <Input title='Name' placeholder='name' />
-          <div className="flex justify-between gap-5">
-            <Input title='Position' placeholder='position' />
-            <Input title='Number' placeholder='number' />
+        <div className="flex items-center justify-center">
+          <div className="bg-primary rounded-full p-5 text-5xl text-gray-900 font-bold opacity-20 hover:opacity-90">
+            <RiAddLine />
           </div>
-          <Input title='Description' placeholder='description' />
-          <div className="absolute top-[-2.45rem] right-1/2 translate-x-1/2 text-xl uppercase font-bold">Add <span className="text-primary">new</span></div>
         </div>
       </div>
+
+      <div className="mb-[25rem]"></div>
+      <NewPlayerCard />
+
 
     </div>
   );
