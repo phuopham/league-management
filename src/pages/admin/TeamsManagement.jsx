@@ -2,12 +2,8 @@ import React from "react";
 import { RiAddLine, RiArrowDownSLine, RiArrowLeftSLine, RiArrowRightSLine, RiLogoutCircleRLine } from "react-icons/ri";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
-import ScoreCard from "../../components/ScoreCard";
-import RankingTable from "../../components/RankingTable";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
-import { Link } from "react-router-dom";
 import TeamCard from "../../components/TeamCard";
-import ProfileInput from "../../components/ProfileInput";
 import NewPlayerCard from "../../components/NewPlayerCard";
 
 const TeamManagement = () => {
@@ -63,7 +59,7 @@ const TeamManagement = () => {
       </div>
 
       <div className="mb-[25rem]"></div>
-      <NewPlayerCard />
+      <NewPlayerCard type='edit' />
 
 
     </div>
