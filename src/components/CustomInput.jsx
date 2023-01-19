@@ -1,9 +1,9 @@
 import React from 'react'
 
-function ProfileInput({ title, value, placeholder, isRequired = false, style = "" }) {
+function CustomInput({ title, value, placeholder, isRequired = false, style = "" }) {
     return (
-        <div className="md:flex md:items-center mb-8">
-            <div className={"py-2 mr-2 " + style}>
+        <div className="md:flex md:items-center md:my-1">
+            <div className={"py-2 mr-2 w-1/5 " + style}>
                 <p>
                     {title}
                     {isRequired && <span className="text-red-500">*</span>}
@@ -21,4 +21,4 @@ function ProfileInput({ title, value, placeholder, isRequired = false, style = "
     )
 }
 
-export default ProfileInput
+export default CustomInput
