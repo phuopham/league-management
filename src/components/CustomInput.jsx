@@ -3,7 +3,7 @@ import React from 'react'
 function CustomInput({ title, value, placeholder, isRequired = false, style = "" }) {
     return (
         <div className="md:flex md:items-center md:my-1">
-            <div className={"py-2 mr-2 w-1/5 " + style}>
+            <div className={"py-2 mr-2 md:w-1/5 " + style}>
                 <p>
                     {title}
                     {isRequired && <span className="text-red-500">*</span>}
