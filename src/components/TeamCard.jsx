@@ -1,10 +1,33 @@
 import React from 'react'
 import { RiAddLine, RiEditLine } from 'react-icons/ri'
 
-const TeamCard = () => {
+const TeamCard = ({ name, onClick }) => {
+    const players = [
+        {
+            'id': 1,
+            'name': 'Ronaldo',
+            'number': 7,
+            'position': 'MT',
+            'description': 'top 1'
+        },
+        {
+            'id': 2,
+            'name': 'Messi',
+            'number': 10,
+            'position': 'MD',
+            'description': 'real top 1'
+        },
+        {
+            'id': 3,
+            'name': 'Quang Hai',
+            'number': 21,
+            'position': 'BB',
+            'description': 'lởm vãi'
+        }
+    ];
     return (
         <div className='bg-gray-900 p-5 rounded-3xl w-full relative mt-5'>
-            <div className='absolute top-[-1rem] right-1/2 translate-x-1/2 uppercase tracking-[5px] font-bold text-primary'>TeamCard</div>
+            <div className='absolute top-[-1rem] right-1/2 translate-x-1/2 uppercase tracking-[5px] font-bold text-primary'>{name}</div>
             <div className='absolute top-[-1rem] right-[1rem]'>
                 <button className=' p-1 text-gray-900 rounded-full mr-1 bg-primary bg-opacity-30 hover:bg-opacity-100'>
                     <RiEditLine />
@@ -23,37 +46,19 @@ const TeamCard = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className='relative'>
-                        <td>
-                            <button className='absolute top-0 left-[-2rem] p-1 text-gray-900 rounded-full bg-primary bg-opacity-30 hover:bg-opacity-100'>
-                                <RiEditLine />
-                            </button>
-                            Messi
-                        </td>
-                        <td className='text-center'>10</td>
-                        <td>Tienve</td>
-                        <td>Best player</td>
-                    </tr>
-                    <tr className='relative'>
-                        <td>
-                            <button className='absolute top-0 left-[-2rem] p-1 text-gray-900 rounded-full bg-primary bg-opacity-30 hover:bg-opacity-100'>
-                                <RiEditLine />
-                            </button>
-                            Ronaldo</td>
-                        <td className='text-center'>7</td>
-                        <td>Tiendao</td>
-                        <td>Real best player</td>
-                    </tr>
-                    <tr className='relative'>
-                        <td>
-                            <button className='absolute top-0 left-[-2rem] p-1 text-gray-900 rounded-full bg-primary bg-opacity-30 hover:bg-opacity-100'>
-                                <RiEditLine />
-                            </button>
-                            Nguyen Quang Hai</td>
-                        <td className='text-center'>18</td>
-                        <td>Tienve</td>
-                        <td>Lom deo chiu dc</td>
-                    </tr>
+                    {players.map(it => {
+                        return (
+                            <tr className='relative'>
+                                <td>
+                                    {it.name}
+                                </td>
+                                <td className='text-center'>{it.number}</td>
+                                <td className='text-center'>{it.position}</td>
+                                <td>{it.description}</td>
+                            </tr>
+                        )
+                    })}
+
                 </tbody>
             </table>
         </div>

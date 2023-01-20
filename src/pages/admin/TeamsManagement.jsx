@@ -4,10 +4,10 @@ import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import TeamCard from "../../components/TeamCard";
-import NewPlayerCard from "../../components/NewPlayerCard";
 import NewTeamBox from "../../components/NewTeamBox";
 
 const TeamManagement = () => {
+  const teamList = ['Ba Dao', 'Khung Bo', 'An choi']
 
   return (
     <div>
@@ -48,14 +48,16 @@ const TeamManagement = () => {
         </div>
       </div>
       <div className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-5 xl:grid-cols-3">
-        <TeamCard />
-        <TeamCard />
-        <TeamCard />
-        <TeamCard />
+        {teamList.map(it => {
+          return (
+            <TeamCard name={it} />
+          )
+
+        })}
         <div className="flex items-center justify-center">
-          <div className="bg-primary rounded-full p-5 text-5xl text-gray-900 font-bold opacity-20 hover:opacity-90">
+          <button className="bg-primary rounded-full p-5 text-5xl text-gray-900 font-bold opacity-20 hover:opacity-90">
             <RiAddLine />
-          </div>
+          </button>
         </div>
         <NewTeamBox />
       </div>

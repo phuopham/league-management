@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { RiAddLine } from 'react-icons/ri';
 
-const NewTeamLine = () => {
+const NewTeamLine = ({ onClick }) => {
 
     const players = [
         {
@@ -26,7 +27,7 @@ const NewTeamLine = () => {
         }
     ];
 
-    const [selection, setSelection] = useState(players[0].name)
+    const [selection, setSelection] = useState('')
 
 
 
@@ -34,6 +35,7 @@ const NewTeamLine = () => {
         <tr>
             <td>
                 <select name="name" id="" className='outline-none rounded-lg bg-gray-800 text-center w-full' onChange={() => setSelection(event.target.value)}>
+                    <option value="">Please select</option>
                     {players.map(player => {
                         return (
                             <option key={player.id} value={player.name}>{player.name}</option>
@@ -42,13 +44,16 @@ const NewTeamLine = () => {
                 </select>
             </td>
             <td className='text-center'>
-                {players.find(it => it.name == selection).number}
+                {players.find(it => it.name == selection)?.number}
             </td>
             <td className='text-center'>
-                {players.find(it => it.name == selection).position}
+                {players.find(it => it.name == selection)?.position}
             </td>
-            <td className='text-center'>
-                {players.find(it => it.name == selection).description}
+            <td className='text-center relative'>
+                {players.find(it => it.name == selection)?.description}
+                <button className=' absolute bottom-1/2 translate-y-1/2 right-[-2rem] p-1 text-gray-900 rounded-full bg-white bg-opacity-30 hover:bg-opacity-100' onClick={onClick}>
+                    <RiAddLine />
+                </button>
             </td>
         </tr>
     )
