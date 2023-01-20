@@ -5,6 +5,7 @@ import "@szhsin/react-menu/dist/transitions/slide.css";
 import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import TeamCard from "../../components/TeamCard";
 import NewPlayerCard from "../../components/NewPlayerCard";
+import NewTeam from "../../components/NewTeam";
 
 const TeamManagement = () => {
 
@@ -56,10 +57,11 @@ const TeamManagement = () => {
             <RiAddLine />
           </div>
         </div>
+        <NewTeam />
       </div>
 
-      <div className="mb-[25rem]"></div>
-      <NewPlayerCard type='edit' />
+      {/* <div className="mb-[25rem]"></div>
+      <NewPlayerCard type='edit' /> */}
 
 
     </div>
