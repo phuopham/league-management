@@ -3,7 +3,7 @@ import Input from './CustomInput'
 
 const NewPlayerCard = ({ type }) => {
     return (
-        <div className='absolute bottom-0 right-1/2 translate-x-1/2 translate-y-[2.5rem] bg-gray-700 w-3/5 p-5 rounded-3xl'>
+        <div className='lg:absolute bottom-0 right-1/2 lg:translate-x-1/2 bg-gray-700 lg:w-3/5 p-5 rounded-3xl'>
             <div className="relative grid grid-cols-1 2xl:grid-cols-2">
                 <div className='w-full'>
                     <Input title='Name' placeholder='name' style='md:text-right' />
