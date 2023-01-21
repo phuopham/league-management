@@ -5,3 +5,7 @@
 ::-webkit-scrollbar {
   width: 0px;
 }
+
+.timer>div:first-child>span {
+  display: none;
+}

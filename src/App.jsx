@@ -12,6 +12,8 @@ import Profile from "./pages/admin/Profile";
 import Error404 from "./pages/Error404";
 import TeamManagement from "./pages/admin/TeamsManagement";
 import PlayerManagement from "./pages/admin/PlayerManagement";
+import Match from "./pages/admin/Match";
+import Live from "./pages/admin/Live";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="team" element={<TeamManagement />} />
           <Route path="players" element={<PlayerManagement />} />
           <Route path="profile" element={<Profile />} />
+          <Route path="match" element={<Match />} />
+          <Route path="live" element={<Live />} />
         </Route>
         <Route path="*" element={<Error404 />} />
       </Routes>
