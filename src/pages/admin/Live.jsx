@@ -37,6 +37,20 @@ const Live = () => {
         setTime(0);
     };
 
+    const [aForPlayer, setAForPlayer] = useState(false)
+    const addTeamA = () => {
+        setBForPlayer(false)
+        setAForPlayer(true)
+    }
+
+    const [bForPlayer, setBForPlayer] = useState(false)
+    const addTeamB = () => {
+        setBForPlayer(true)
+        setAForPlayer(false)
+    }
+
+    const revert = () => { }
+
     return (
         <div>
             <h1 className="text-4xl uppercase tracking-[5px] font-bold text-white mb-10">Match <span className="text-primary">Live</span></h1>
@@ -72,13 +86,43 @@ const Live = () => {
                 </div>
                 <div className='hidden md:block text-primary text-5xl uppercase tracking-[5px] font-bold'>Team 3</div>
             </div>
-            <div className='grid grid-cols-2 gap-2 justify-around p-4 bg-gray-700 rounded-lg mb-5'>
+            <div className='grid grid-cols-2 gap-4 justify-around p-4 bg-gray-700 rounded-lg mb-5'>
                 {!isActive ?
-                    <button className='uppercase tracking-[5px] font-bold text-xl p-4 bg-primary text-secondary-100 rounded-xl' onClick={handleStart}>Start</button> :
+                    <button className='uppercase tracking-[5px] font-bold text-xl p-4 bg-primary text-secondary-100 rounded-xl col-start-1 col-end-3' onClick={handleStart}>Start</button> :
                     <button className='uppercase tracking-[5px] font-bold text-xl text-red-500 p-4 bg-gray-100 rounded-xl' onClick={handleReset}>Reset</button>
                 }
 
                 {isActive && <button className={'uppercase tracking-[5px] font-bold text-xl p-4 text-secondary-100 rounded-xl ' + (isPaused ? ' bg-primary' : 'bg-gray-50')} onClick={handlePauseResume}>{isPaused ? 'Resume' : 'Pause'}</button>}
+            </div>
+            <div className='grid grid-cols-2 gap-4 justify-around p-4 bg-gray-700 rounded-lg mb-5'>
+                <div>
+                    <button className='uppercase font-bold w-full text-xl p-4 text-secondary-100 rounded-xl bg-gray-50' onClick={addTeamA}>+1</button>
+                </div>
+                <div>
+                    <button className='uppercase font-bold w-full text-xl p-4 text-secondary-100 rounded-xl bg-primary' onClick={addTeamB}>+1</button>
+                </div>
+                <div className='h-10'>
+                    {aForPlayer &&
+                        <select name="player_id" id="" className='outline-none rounded-lg p-2 bg-gray-800 text-center w-full'>
+                            <option>Please select</option>
+                            <option value="1">Messi</option>
+                            <option value="2">Ronaldo</option>
+                            <option value="3">Mbappe</option>
+                        </select>
+                    }
+                </div>
+                <div className='h-10'>
+                    {bForPlayer &&
+                        <select name="player_id" id="" className='outline-none rounded-lg p-2 bg-gray-800 text-center w-full'>
+                            <option>Please select</option>
+                            <option value="1">Hai Con</option>
+                            <option value="2">Hai Que</option>
+                            <option value="3">Tien Linh</option>
+                        </select>}
+                </div>
+                <div className='col-start-1 col-end-3'>
+                    <button className='uppercase font-bold w-full text-xl p-1 rounded-xl bg-gray-500  text-red-500 opacity-75' onClick={revert}>Revert</button>
+                </div>
             </div>
         </div>
     );
