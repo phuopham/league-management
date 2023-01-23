@@ -6,6 +6,6 @@
   width: 0px;
 }
 
-.timer>div:first-child>span {
+.timer>span:first-child>span {
   display: none;
 }
