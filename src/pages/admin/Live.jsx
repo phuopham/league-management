@@ -9,6 +9,7 @@ const HOUR = MINUTE * 60;
 const Live = () => {
 
     const [time, setTime] = useState(0);
+    const [timestamp, setTimestamp] = useState(0);
     const [isActive, setIsActive] = useState(false)
     const [isPaused, setIsPaused] = useState(true)
     const [teamA, setTeamA] = useState('Team 1')
@@ -53,9 +54,9 @@ const Live = () => {
 
     const handleActivityA = () => {
         setActivity([...activity, {
-            'timestamp': time,
+            'timestamp': timestamp,
             'player': event.target.value,
-            'team': 'team 1'
+            'team': teamA
         }])
         setScoreA(scoreA + 1)
         setAForPlayer(false)
@@ -68,19 +69,21 @@ const Live = () => {
             'team': 'Team 3'
         }])
         setScoreB(scoreB + 1)
-        setAForPlayer(false)
+        setBForPlayer(false)
     }
 
     const [aForPlayer, setAForPlayer] = useState(false)
     const addTeamA = () => {
         setBForPlayer(false)
         setAForPlayer(true)
+        setTimestamp(time)
     }
 
     const [bForPlayer, setBForPlayer] = useState(false)
     const addTeamB = () => {
         setAForPlayer(false)
         setBForPlayer(true)
+        setTimestamp(time)
     }
 
     const handleEnd = () => { }
@@ -102,8 +105,12 @@ const Live = () => {
                 <div className='grid grid-cols-3 w-full md:w-1/3'>
                     <div>
                         <div className='text-5xl font-bold'>{scoreA}</div>
-                        <div className='font-normal text-sm'><span>5'</span>{' '}<span className='text-primary'>{'Messi Lambogini'.split(' ')[0]}</span></div>
-                        <div className='font-normal text-sm'><span>12'</span>{' '}<span className='text-primary'>{'Ronaldo Spagetty'.split(' ')[0]}</span></div>
+                        {activity.filter(it => it.team == teamA).map(it => {
+                            return (<div className='font-normal text-sm' key={it.timestamp}>
+                                <span>{`${Math.floor(it.timestamp / MINUTE % 60)}`.padStart(2, "0")}'</span>{' '}<span className='text-primary'>{it.player.split(' ')[0]}</span>
+                            </div>
+                            )
+                        })}
                     </div>
                     <div className="flex timer justify-self-center p-3 text-3xl font-normal">
                         {Object.entries({
@@ -117,9 +124,12 @@ const Live = () => {
                     </div>
                     <div>
                         <div className='text-5xl font-bold'>{scoreB}</div>
-                        <div className='font-normal text-sm'><span>8'</span>{' '}<span className='text-primary'>{'Hai Con'.split(' ')[0]}</span></div>
-                        <div className='font-normal text-sm'><span>16'</span>{' '}<span className='text-primary'>{'Linh Tien'.split(' ')[0]}</span></div>
-                        <div className='font-normal text-sm'><span>19'</span>{' '}<span className='text-primary'>{'Linh Tien'.split(' ')[0]}</span></div>
+                        {activity.filter(it => it.team == teamB).map(it => {
+                            return (<div className='font-normal text-sm' key={it.timestamp}>
+                                <span>{`${Math.floor(it.timestamp / MINUTE % 60)}`.padStart(2, "0")}'</span>{' '}<span className='text-primary'>{it.player.split(' ')[0]}</span>
+                            </div>
+                            )
+                        })}
                     </div>
 
                 </div>
@@ -169,7 +179,7 @@ const Live = () => {
                     {activity != [] &&
                         activity.map(it => {
                             return (
-                                <div className='py-2 px-4 border-l border-gray-500 ml-6 block relative before:w-3 before:h-3 before:absolute before:bg-gray-500 before:rounded-full before:-left-[6.5px] before:top-1/2 before:-translate-y-1./2 before:border-4 before:border-secondary-100 text-primary'>
+                                <div className='py-2 px-4 border-l border-gray-500 ml-6 block relative before:w-3 before:h-3 before:absolute before:bg-gray-500 before:rounded-full before:-left-[6.5px] before:top-1/2 before:-translate-y-1./2 before:border-4 before:border-secondary-100 text-primary' key={it.timestamp}>
                                     <span>{`${Math.floor(it.timestamp / MINUTE % 60)}`.padStart(2, "0")}</span>
                                     <span>:</span>
                                     <span>{`${Math.floor(it.timestamp / SECOND % 60)}`.padStart(2, "0")}</span>
@@ -185,14 +195,14 @@ const Live = () => {
 
                 </div>
             }
-            <div className='grid grid-cols-3 gap-4 justify-around p-4 bg-gray-700 rounded-lg mb-5'>
+            <div className='grid grid-cols-2 md:grid-cols-3 gap-4 justify-around p-4 bg-gray-700 rounded-lg mb-5'>
                 {!isActive ?
                     <button className='uppercase tracking-[5px] font-bold text-xl p-4 bg-primary text-secondary-100 rounded-xl col-start-1 col-end-4' onClick={handleStart}>Start</button> :
                     <button className='uppercase tracking-[5px] font-bold text-xl text-red-500 p-4 bg-gray-100 rounded-xl' onClick={handleReset}>Reset</button>
                 }
 
                 {isActive && <button className={'uppercase tracking-[5px] font-bold text-xl p-4 text-secondary-100 rounded-xl ' + (isPaused ? ' bg-primary' : 'bg-gray-50')} onClick={handlePauseResume}>{isPaused ? 'Resume' : 'Pause'}</button>}
-                {isActive && <button className='uppercase tracking-[5px] font-bold text-xl text-secondary-100 p-4 bg-primary rounded-xl' onClick={handleEnd}>End</button>
+                {isActive && <button className='uppercase tracking-[5px] font-bold text-xl text-secondary-100 p-4 bg-primary rounded-xl col-start-1 col-end-3 md:col-auto md:col-start-auto md:col-end-auto' onClick={handleEnd}>End</button>
 
                 }
             </div>
