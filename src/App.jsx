@@ -14,6 +14,7 @@ import TeamManagement from "./pages/admin/TeamsManagement";
 import PlayerManagement from "./pages/admin/PlayerManagement";
 import Match from "./pages/admin/Match";
 import Live from "./pages/admin/Live";
+import MatchDetail from "./pages/admin/MatchDetail";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="match" element={<Match />} />
           <Route path="live" element={<Live />} />
+          <Route path="matchdetail" element={<MatchDetail />} />
         </Route>
         <Route path="*" element={<Error404 />} />
       </Routes>

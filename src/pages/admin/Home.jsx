@@ -47,6 +47,7 @@ const Home = () => {
       />
       <RankingTable
         name='Group02'
+
       />
       <RankingTable
         name='Final'

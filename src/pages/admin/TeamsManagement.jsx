@@ -2,7 +2,6 @@ import React from "react";
 import { RiAddLine, RiArrowDownSLine, RiArrowLeftSLine, RiArrowRightSLine, RiLogoutCircleRLine } from "react-icons/ri";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/slide.css";
-import { Menu, MenuButton, MenuItem } from "@szhsin/react-menu";
 import TeamCard from "../../components/TeamCard";
 import NewTeamBox from "../../components/NewTeamBox";
 import Header from "../../components/Header";
