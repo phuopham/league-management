@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useMemo, useState } from "react";
 import Header from '../../components/Header';
+import ScoreBoxBig from '../../components/ScoreBoxBig';
 import Timeline from '../../components/Timeline';
 
 const SECOND = 1000;
@@ -67,7 +68,7 @@ const Live = () => {
         setActivity([...activity, {
             'timestamp': time,
             'player': event.target.value,
-            'team': 'Team 3'
+            'team': teamB
         }])
         setScoreB(scoreB + 1)
         setBForPlayer(false)
@@ -94,48 +95,20 @@ const Live = () => {
         //call the last record and delete it
     }
 
+    const timer = Object.entries({
+        Minutes: (time / MINUTE) % 60,
+        Seconds: (time / SECOND) % 60,
+    }).map(([label, value]) => (
+        <span key={label}>
+            <span className='text-primary'>:</span>{`${Math.floor(value)}`.padStart(2, "0")}
+        </span>
+    ))
+
     return (
         <div>
             <h1 className="text-4xl uppercase tracking-[5px] font-bold text-white mb-10">Match <span className="text-primary">Live</span></h1>
-            <div className='flex mb-5 uppercase font-xl font-bold tracking-[5px] justify-between'>
-                <div className='block md:hidden text-gray-50'>{teamA}</div>
-                <div className='block md:hidden text-primary'>{teamB}</div>
-            </div>
-            <div className='flex flex-wrap gap-5 justify-between p-5 bg-gray-700 rounded-lg mb-5 text-center '>
-                <div className='hidden md:block text-primary text-5xl uppercase tracking-[5px] font-bold'>{teamA}</div>
-                <div className='grid grid-cols-3 w-full md:w-1/3'>
-                    <div>
-                        <div className='text-5xl font-bold'>{scoreA}</div>
-                        {activity.filter(it => it.team == teamA).map(it => {
-                            return (<div className='font-normal text-sm' key={it.timestamp}>
-                                <span>{`${Math.floor(it.timestamp / MINUTE % 60)}`.padStart(2, "0")}'</span>{' '}<span className='text-primary'>{it.player.split(' ')[0]}</span>
-                            </div>
-                            )
-                        })}
-                    </div>
-                    <div className="flex timer justify-self-center p-3 text-3xl font-normal">
-                        {Object.entries({
-                            Minutes: (time / MINUTE) % 60,
-                            Seconds: (time / SECOND) % 60,
-                        }).map(([label, value]) => (
-                            <span key={label}>
-                                <span className='text-primary'>:</span>{`${Math.floor(value)}`.padStart(2, "0")}
-                            </span>
-                        ))}
-                    </div>
-                    <div>
-                        <div className='text-5xl font-bold'>{scoreB}</div>
-                        {activity.filter(it => it.team == teamB).map(it => {
-                            return (<div className='font-normal text-sm' key={it.timestamp}>
-                                <span>{`${Math.floor(it.timestamp / MINUTE % 60)}`.padStart(2, "0")}'</span>{' '}<span className='text-primary'>{it.player.split(' ')[0]}</span>
-                            </div>
-                            )
-                        })}
-                    </div>
+            <ScoreBoxBig activity={activity} scoreA={scoreA} scoreB={scoreB} teamA={teamA} teamB={teamB} timer={timer} />
 
-                </div>
-                <div className='hidden md:block text-primary text-5xl uppercase tracking-[5px] font-bold'>{teamB}</div>
-            </div>
             {isActive && <div className='grid grid-cols-2 gap-4 justify-around p-4 bg-gray-700 rounded-lg mb-5'>
                 <div>
                     <button className='uppercase font-bold w-full text-xl p-4 text-secondary-100 rounded-xl bg-gray-50' onClick={addTeamA}>+1</button>
