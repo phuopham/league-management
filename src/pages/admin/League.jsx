@@ -27,6 +27,18 @@ const League = () => {
                 <div className=''>
                     <ScoreCard type={'semi-final'} time='03/03/2023' team1={'N/A'} team2={'N/A'} />
                 </div>
+                <div className='col-start-1'>
+                    <ScoreCard type={'Top 4'} time='03/03/2023' team1={'N/A'} team2={'N/A'} />
+                </div>
+                <div className=''>
+                    <ScoreCard type={'Top 4'} time='03/03/2023' team1={'N/A'} team2={'N/A'} />
+                </div>
+                <div className=''>
+                    <ScoreCard type={'Top 4'} time='03/03/2023' team1={'N/A'} team2={'N/A'} />
+                </div>
+                <div className=''>
+                    <ScoreCard type={'Top 4'} time='03/03/2023' team1={'N/A'} team2={'N/A'} />
+                </div>
                 <div className='bg-gray-700 p-5 rounded-2xl'>
                     <div className='text-primary uppercase tracking-[5px] font-bold text-center'>Group A</div>
                     <ScoreCard type={'Group A'} time='03/03/2023' team1={'team 1'} team2={'team 2'} />
