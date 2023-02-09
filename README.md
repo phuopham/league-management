@@ -1,1 +1,1 @@
-Sport league management - frontend with reactjs
+##Sport league management - frontend with Reactjs, TailwindCSS and Vite
