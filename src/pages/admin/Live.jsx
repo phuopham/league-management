@@ -46,6 +46,8 @@ const Live = () => {
     const handleReset = () => {
         setIsActive(false);
         setTime(0);
+        setScoreA(0);
+        setScoreB(0);
         setActivity([])
     };
 
